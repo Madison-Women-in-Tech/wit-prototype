@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import team from '../data/team.json';
+import Photo from '../components/Photo.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <Base title="About" description="Meet the volunteer-run community behind Madison Women in Tech.">
@@ -8,6 +9,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <div class="wrap narrow">
       <p class="eyebrow">About</p>
       <h1>About Madison WiT</h1>
+    </div>
+    <div class="wrap" style="margin-top:2rem">
+      <Photo
+        src="about-group.jpg"
+        alt="A group of Madison Women in Tech members at a community gathering"
+        ratio="21 / 9"
+        eager={true} />
     </div>
   </section>
 
@@ -29,6 +37,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </p>
 
       <h2>Inclusivity</h2>
+      <Photo
+        src="panel.jpg"
+        alt="Panelists speaking to an audience at a Madison Women in Tech event"
+        ratio="3 / 2"
+        caption="Panel discussions are a regular part of WiT programming." />
+      <p style="margin-top:1.4rem"></p>
       <p>
         Any woman or nonbinary person interested in or working in technology is welcome at
         ALL of our events.

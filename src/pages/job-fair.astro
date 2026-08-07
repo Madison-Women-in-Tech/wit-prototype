@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+import Photo from '../components/Photo.astro';
 
 const industries = ['Healthcare','Fintech','Gaming','Consulting','Insurance','Fashion / Retail','Social Impact'];
 
@@ -34,6 +35,16 @@ const quotes = [
 
   <section>
     <div class="wrap">
+      <div class="grid grid-2" style="margin-bottom:2.5rem">
+        <Photo
+          src="jobfair-seekers.jpg"
+          alt="Job seekers meeting recruiters at the Madison Women in Tech job fair"
+          ratio="3 / 2" />
+        <Photo
+          src="jobfair-employers.jpg"
+          alt="An employer table staffed at the Madison Women in Tech job fair"
+          ratio="3 / 2" />
+      </div>
       <div class="grid grid-2" style="align-items:start">
         <div class="prose">
           <p class="eyebrow">For job seekers</p>

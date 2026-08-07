@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import SponsorGrid from '../components/SponsorGrid.astro';
+import Photo from '../components/Photo.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
 import site from '../data/site.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -19,15 +20,22 @@ const reviews = [
 ---
 <Base title={null}>
   <section class="hero">
-    <div class="wrap">
-      <p class="eyebrow">Madison, Wisconsin</p>
-      <h1>A community for women and nonbinary folks in tech</h1>
-      <p class="lede">{site.mission}</p>
-      <p class="lede"><strong>Membership is 100% free.</strong></p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href={`${base}/join`}>Become a member</a>
-        <a class="btn btn-ghost" href={site.meetupEvents} rel="noopener">See upcoming events</a>
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Madison, Wisconsin</p>
+        <h1>A community for women and nonbinary folks in tech</h1>
+        <p class="lede">{site.mission}</p>
+        <p class="lede"><strong>Membership is 100% free.</strong></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href={`${base}/join`}>Become a member</a>
+          <a class="btn btn-ghost" href={site.meetupEvents} rel="noopener">See upcoming events</a>
+        </div>
       </div>
+      <Photo
+        src="hero-group.jpg"
+        alt="Madison Women in Tech members gathered together at a community event"
+        ratio="4 / 3"
+        eager={true} />
     </div>
   </section>
 
@@ -79,8 +87,17 @@ const reviews = [
             <a class="btn btn-primary" href={`${base}/job-fair`}>Job fair details</a>
           </div>
         </div>
-        <NewsletterForm />
+        <Photo
+          src="jobfair-about.jpg"
+          alt="Attendees talking with employers at a previous Madison Women in Tech job fair"
+          ratio="3 / 2" />
       </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow">
+      <NewsletterForm />
     </div>
   </section>
 
@@ -99,6 +116,13 @@ const reviews = [
 </Base>
 
 <style>
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+  @media (max-width: 800px) { .hero-grid { grid-template-columns: 1fr; } }
   .stat-note {
     text-align: center; font-size: .78rem; color: var(--ink-soft);
     font-style: italic; margin: 2rem auto 0; max-width: 60ch;
