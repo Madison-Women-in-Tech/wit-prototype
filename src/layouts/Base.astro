@@ -1,0 +1,47 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import site from '../data/site.json';
+import '../styles/global.css';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const { title, description = site.mission } = Astro.props;
+const fullTitle = title ? `${title} | ${site.name}` : site.name;
+const path = Astro.url.pathname.replace(/\/$/, '');
+---
+<!doctype html>
+<html lang="en" data-theme="classic">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" sizes="32x32" href={`${base}/images/favicon-32.png`} />
+    <link rel="apple-touch-icon" href={`${base}/images/apple-touch-icon.png`} />
+    <meta name="theme-color" content="#168fbe" />
+    <!-- Anton approximates the condensed caps in the logo wordmark.
+         For production, self-host it instead of hitting Google. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap" />
+    <!-- Set theme before paint so there's no flash. Prototype only. -->
+    <script is:inline>
+      try {
+        var t = localStorage.getItem('wit-theme');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Nav path={path} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,45 @@
+---
+// PROTOTYPE ONLY — delete this component once the team picks a direction,
+// then hardcode the winning palette in global.css.
+---
+<div class="theme-toggle" role="group" aria-label="Preview theme">
+  <span class="tt-label">Preview:</span>
+  <button type="button" data-set-theme="classic">Classic</button>
+  <button type="button" data-set-theme="fresh">Fresh</button>
+</div>
+
+<style>
+  .theme-toggle {
+    display: flex; align-items: center; gap: .35rem;
+    font-size: .78rem;
+  }
+  .tt-label { color: var(--ink-soft); margin-right: .15rem; }
+  .theme-toggle button {
+    font: inherit;
+    padding: .3rem .7rem;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink-soft);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .theme-toggle button[aria-pressed='true'] {
+    background: var(--brand); color: #fff; border-color: var(--brand);
+  }
+</style>
+
+<script>
+  function paint(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try { localStorage.setItem('wit-theme', theme); } catch (e) {}
+    document.querySelectorAll('[data-set-theme]').forEach((b) => {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-set-theme') === theme));
+    });
+  }
+  document.querySelectorAll('[data-set-theme]').forEach((b) => {
+    b.addEventListener('click', () => paint(b.getAttribute('data-set-theme')));
+  });
+  let current = 'classic';
+  try { current = localStorage.getItem('wit-theme') || 'classic'; } catch (e) {}
+  paint(current);
+</script>

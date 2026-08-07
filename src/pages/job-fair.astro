@@ -1,0 +1,108 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const industries = ['Healthcare','Fintech','Gaming','Consulting','Insurance','Fashion / Retail','Social Impact'];
+
+const pastEmployers = ['findhelp','Summit Credit Union','Esker','UW-Madison Job Rotation','Epic','CapSpecialty','Singlewire Software','Google Madison','Filament Games','Moxe Health','PerBlue','Exact Sciences','nvisia','Smart Solutions','Flow Enterprises','Nordic Consulting','Raven Software','Carex Consulting Group','Madison Gas & Electric','Baker Tilly','Flagrant','Infosec','Beacon Technologies','Fetch','Paradigm','Ten Forward Consulting','Shopbop'];
+
+const quotes = [
+  { q: 'Kudos to Madison Women in Tech for hosting a wonderful career fair today! And thanks to all the talented attendees who took time to stop by and discuss IT careers.', who: 'Summit Credit Union' },
+  { q: 'It was an incredible opportunity to connect with passionate and talented individuals in the tech field.', who: 'UW-Madison Job Rotation Program' },
+  { q: 'Having a blast meeting amazing people at the Madison Women in Tech Career Fair!', who: 'Smart Solutions' },
+];
+---
+<Base title="Job Fair" description="The annual Madison Women in Tech job fair for women and nonbinary folks in tech.">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Annual event</p>
+      <h1>2026 Job Fair for Women and Nonbinary Folks in Tech</h1>
+      <p class="lede">
+        <strong>Wednesday, Aug. 19 &middot; 10am&ndash;2pm &middot; UW Memorial Union</strong>
+      </p>
+      <p class="lede">
+        Part of <a href="https://www.devfestwi.com/" rel="noopener">DevFest WI</a> and
+        <a href="https://forwardfest.org/" rel="noopener">Forward Fest</a>, Wisconsin's
+        largest tech and entrepreneurship festival.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://www.meetup.com/madison-women-in-tech/events/313701709" rel="noopener">RSVP as a job seeker</a>
+        <a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSdpksbIWI7qZpK-yWBd1xOXztyckXzLePHUX73HYH3_lzfeBA/viewform" rel="noopener">Register as an employer</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid grid-2" style="align-items:start">
+        <div class="prose">
+          <p class="eyebrow">For job seekers</p>
+          <h2>Find your next opportunity</h2>
+          <p>
+            Get your skillset and resume in front of 20+ local employers across a
+            variety of industries:
+          </p>
+          <ul>{industries.map((i) => <li>{i}</li>)}</ul>
+          <h3>What we do to make it inclusive</h3>
+          <p>
+            The Memorial Union is wheelchair accessible and has all-gender bathrooms,
+            as well as bathrooms with baby changing stations. Every attendee receives a
+            packet with a detailed list of participating employers &mdash; including
+            which ones offer internships or apprenticeships, and which can sponsor
+            work visas &mdash; plus a sturdy folder for materials.
+          </p>
+        </div>
+
+        <div class="prose">
+          <p class="eyebrow">For employers</p>
+          <h2>Diversify your candidate pool</h2>
+          <p>
+            Now in its fourth year, the job fair attracts people from the Madison area
+            and beyond, seeking work across a wide variety of experience levels and job
+            titles. On average, <strong>more than 33% of attendees are people of
+            color</strong>, and all attendees are women or nonbinary.
+          </p>
+          <div class="callout">
+            <p>
+              Register through our Google Form, or email
+              <a href="mailto:admin@madisonwomen.tech">admin@madisonwomen.tech</a>
+              to request the sponsorship prospectus.
+            </p>
+          </div>
+          <p class="pdf-note">
+            Prototype note: the 2026 prospectus PDF currently lives inside the Rails app.
+            It needs downloading and committing to <code>public/</code> before cutover.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="wrap">
+      <h2>What employers say</h2>
+      <div class="grid grid-3" style="margin-top:2rem">
+        {quotes.map((q) => (
+          <blockquote class="quote">
+            <p>&ldquo;{q.q}&rdquo;</p>
+            <cite>&mdash; {q.who}</cite>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Past employer participants</h2>
+      <div class="sponsors" style="margin-top:1.5rem">
+        {pastEmployers.map((e) => <a href="#" onclick="event.preventDefault()">{e}</a>)}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .pdf-note { font-size: .78rem; color: var(--ink-soft); font-style: italic; }
+  code { background: var(--surface-alt); padding: .1rem .35rem; border-radius: 3px; font-size: .9em; }
+</style>

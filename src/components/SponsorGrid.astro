@@ -1,0 +1,19 @@
+---
+import sponsors from '../data/sponsors.json';
+const { limit } = Astro.props;
+const list = limit ? sponsors.slice(0, limit) : sponsors;
+---
+<div class="sponsors">
+  {list.map((s) => (
+    <a href={s.url} rel="noopener" title={s.name}>{s.name}</a>
+  ))}
+</div>
+<p class="logo-note">
+  Prototype note: real sponsor logos drop into <code>public/images/sponsors/</code>
+  and replace these text tiles. Names and links are the live ones.
+</p>
+
+<style>
+  .logo-note { font-size: .78rem; color: var(--ink-soft); font-style: italic; margin-top: 1rem; }
+  code { background: var(--surface-alt); padding: .1rem .35rem; border-radius: 3px; font-size: .9em; }
+</style>

@@ -1,0 +1,14 @@
+[
+  { "name": "Naveen VK", "role": "Technical Director at nvisia", "url": "https://www.linkedin.com/in/naveenvkm/",
+    "bio": "Naveen VK, Technical Director at nvisia, has over 25 years of professional experience in designing, building and implementing bespoke on-prem and cloud applications across a range of industries including fintech, healthcare, manufacturing, and government sectors. She loves to share her technical expertise and experiences at diverse meetups and conferences." },
+  { "name": "Hilary Stohs-Krause", "role": "Senior Software Engineer at Red Canary", "url": "https://www.linkedin.com/in/hilarysk",
+    "bio": "Hilary is a senior software engineer at Red Canary. She speaks at conferences around the country and internationally, including RailsConf, SXSW and PHP International. Hilary is passionate about the intersection of tech, entrepreneurship and social good, and serves on several community boards (Forward Fest, Social Good Accelerator). She loves sci-fi/fantasy, olives, cats and plants." },
+  { "name": "Annette Mechelke", "role": "Staff Software Engineer at Grow Therapy", "url": "https://www.linkedin.com/in/annette-spyker-mechelke/",
+    "bio": "Annette is a software engineer with over a decade of experience, primarily with web services at start ups. She is currently a staff software engineer at Grow Therapy, working to make therapy more accessible. Outside of work, she enjoys getting away from her computer by spending time with family, enjoying the outdoors, or crafting of any kind." },
+  { "name": "Jacci Ziebert", "role": "Developer at The Ohio State University", "url": "https://www.linkedin.com/in/jacci-ziebert/",
+    "bio": "Jacci works as an R/Shiny Developer. She is excited to meet and support other women in tech, especially in this remote work era. She enjoys playing strategy board games, sipping third wave coffee, and exploring the outdoors." },
+  { "name": "Stephanie Frontz", "role": "IT Project Manager at Chobani", "url": "https://www.linkedin.com/in/sfrontz/",
+    "bio": "Stephanie is a people-oriented IT Project Manager experienced in leading large scale, enterprise-wide IT system implementations in the healthcare and CPG industries. A Wisconsin-native, Stephanie enjoys cheering on the state's sports teams and is a Badger fan any day of the year, except when they play Marquette." },
+  { "name": "Sara Vega", "role": "Software Engineer at Shopbop", "url": "https://www.linkedin.com/in/sara-j-vega/",
+    "bio": "Sara (She/Her), a proud Milwaukee native and UW-Madison Horticulture alumna (go plants!), is a software engineer at Shopbop. Beyond her professional endeavors, she passionately mentors students of Ada Developers Academy, a non-profit Sara attended. Outside the tech realm, you'll find her drawing, pedaling through scenic trails or nurturing her community garden plot." }
+]

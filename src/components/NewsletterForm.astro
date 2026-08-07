@@ -1,0 +1,50 @@
+---
+// Kit (formerly ConvertKit) embed.
+//
+// TO WIRE UP FOR REAL:
+//   Kit dashboard -> Grow -> Forms -> your form -> Embed -> JavaScript.
+//   Paste the <script async data-uid="..." src="https://....kit.com/.../index.js">
+//   snippet in place of the .placeholder block below, and delete the placeholder
+//   markup + styles.
+//
+// The static markup here is a visual stand-in so the team can see the layout.
+// It is intentionally non-functional (no action) so nobody thinks they subscribed.
+const { compact = false } = Astro.props;
+---
+<div class:list={['kit-form', compact && 'compact']}>
+  {!compact && <p class="eyebrow">Newsletter</p>}
+  <h3>{compact ? 'Subscribe to our newsletter' : 'Get the twice-monthly newsletter'}</h3>
+  <p class="blurb">
+    WiT news, community events, volunteer opportunities and job openings —
+    every other week.
+  </p>
+
+  <form class="placeholder" onsubmit="event.preventDefault(); alert('Prototype only — this is where the Kit embed goes.');">
+    <label class="sr-only" for={compact ? 'nl-c' : 'nl-f'}>Email address</label>
+    <input id={compact ? 'nl-c' : 'nl-f'} type="email" placeholder="you@example.com" required />
+    <button class="btn btn-primary" type="submit">Subscribe</button>
+  </form>
+
+  <p class="note">Prototype placeholder — swap in the Kit embed snippet here.</p>
+</div>
+
+<style>
+  .kit-form { background: var(--surface); border: 1px solid var(--line);
+              border-radius: var(--radius-lg); padding: 1.6rem; }
+  .kit-form.compact { background: none; border: 0; padding: 0; }
+  .kit-form h3 { color: var(--brand-deep); margin-bottom: .4rem; }
+  .kit-form.compact h3 { font-size: 1rem; color: inherit; }
+  .blurb { color: var(--ink-soft); font-size: .92rem; }
+  .kit-form.compact .blurb { display: none; }
+  form { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .8rem; }
+  input {
+    flex: 1 1 200px; padding: .75rem .9rem; font: inherit; font-size: .92rem;
+    border: 1px solid var(--line); border-radius: var(--radius);
+    background: var(--bg); color: var(--ink);
+  }
+  .note { font-size: .74rem; color: var(--ink-soft); margin: .7rem 0 0; font-style: italic; }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap;
+  }
+</style>

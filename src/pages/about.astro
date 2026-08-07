@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+import team from '../data/team.json';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Base title="About" description="Meet the volunteer-run community behind Madison Women in Tech.">
+  <section class="hero">
+    <div class="wrap narrow">
+      <p class="eyebrow">About</p>
+      <h1>About Madison WiT</h1>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap narrow prose">
+      <p>
+        <strong>Madison Women in Tech is a supportive, inclusive community of women
+        and gender nonbinary folks</strong> working or interested in technology, from
+        designers to programmers to recruiters to students. Through regular events and
+        a digital newsletter, we empower and elevate women and enbys in Madison's tech scene.
+      </p>
+      <p>
+        Formed in July of 2013, WiT has grown from 2 members to more than 2,500, and is
+        now one of the largest tech meetup groups in Madison. WiT sponsors social meetups,
+        educational events, and career development opportunities, and we consistently seek
+        feedback from members to ensure our programming is relevant and timely. We actively
+        seek ways to support and encourage people of color, women and non-binary persons in
+        the tech community.
+      </p>
+
+      <h2>Inclusivity</h2>
+      <p>
+        Any woman or nonbinary person interested in or working in technology is welcome at
+        ALL of our events.
+      </p>
+      <p>
+        Men are welcome at most of our events, but not all; occasionally, we host events
+        that are specifically for women and nonbinary folks. In either case, we will make
+        it clear in the event description. Still unsure if it's appropriate for you to
+        attend? Feel free to email us at
+        <a href="mailto:admin@madisonwomen.tech">admin@madisonwomen.tech</a> and
+        double-check (we're very nice).
+      </p>
+      <p>
+        We highly encourage you to bring children along! We aren't often able to provide
+        dedicated childcare, and some of our events might not be appropriate for children
+        (depending on their age), but we try to choose event spaces that are child-friendly.
+      </p>
+      <div class="callout">
+        <p>
+          With rare exceptions, all our in-person events are hosted at accessible locations
+          near multiple public transportation options; we also work to have gender neutral
+          bathrooms available at every in-person event. When food is involved, we make sure
+          to have items available for vegan and gluten-free attendees.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="wrap">
+      <p class="eyebrow">Volunteer-run</p>
+      <h2>The team</h2>
+      <p class="narrow">
+        Madison Women in Tech is a volunteer-run organization. Interested in helping out?
+        We're always on the lookout for folks with social media or planning skills.
+        <a href={`${base}/join`}>Learn more.</a>
+      </p>
+      <div class="grid grid-2" style="margin-top:2.5rem">
+        {team.map((p) => (
+          <div class="card person">
+            <h3 style="margin-bottom:.1rem">{p.name}</h3>
+            <p class="role">{p.role}</p>
+            <p style="font-size:.92rem;color:var(--ink-soft)">{p.bio}</p>
+            <p style="margin:0"><a href={p.url} rel="noopener">LinkedIn &rarr;</a></p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

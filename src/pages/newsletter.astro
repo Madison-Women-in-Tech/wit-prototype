@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+---
+<Base title="Newsletter" description="Sign up for our email newsletter, sent every other week.">
+  <section class="hero">
+    <div class="wrap narrow">
+      <p class="eyebrow">Every other week</p>
+      <h1>Newsletter</h1>
+      <p class="lede">
+        Filled with the latest WiT news, community and volunteer events, and job
+        opportunities.
+      </p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap narrow">
+      <NewsletterForm />
+
+      <div class="prose" style="margin-top:3rem">
+        <h2>Recent issues</h2>
+        <div class="card">
+          <p style="margin-bottom:.6rem"><strong>Kit newsletter feed goes here.</strong></p>
+          <p style="font-size:.92rem;color:var(--ink-soft);margin:0">
+            Kit's free plan includes a public newsletter archive. Linking to that feed
+            here means this section stays current on its own &mdash; the live site
+            currently hardcodes a single link that has been pointing at a
+            <strong>December 2021</strong> issue ever since.
+          </p>
+        </div>
+
+        <h2>Sponsor the newsletter</h2>
+        <p>
+          An average of <strong>261 unique readers</strong> open each newsletter, and
+          <strong>408</strong> read at least one edition across any four issues.
+          Companies can share open positions for $20 per issue, or $100 for a month.
+          Non-profits are always free &mdash; just email us.
+        </p>
+        <p class="stat-note">
+          Prototype note: those reach numbers come from Mailchimp reporting. Pull
+          equivalent figures from Kit before the next sponsor conversation.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .stat-note { font-size: .78rem; color: var(--ink-soft); font-style: italic; }
+</style>

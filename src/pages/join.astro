@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Merged from /join + /about/FAQ, which overlapped heavily on the old site.
+const faqs = [
+  { q: 'Do I have to be a programmer or work in tech?',
+    a: "Nope! You do not have to be a programmer to join WiT. Any woman or nonbinary person interested in or working in technology is welcome at ALL of our events. Our members are all at vastly different stages of their tech careers. Others just want to learn more about working in tech, or simply want an opportunity to network and socialize." },
+  { q: 'Are there any attendance requirements?',
+    a: 'Nope! There are no attendance requirements. You can attend as few or as many events as you like.' },
+  { q: 'What kind of events does WiT host?',
+    a: "WiT hosts a large variety of events: social and networking events, career development events, and community and volunteer events. We frequently seek input from members to help us plan programming that's timely and responsive to current events and member needs. WiT events are free or $5 or less, and for in-person events, are scheduled at accessible locations." },
+  { q: 'What does it mean to be a member?',
+    a: 'Being a member of Madison Women in Tech is 100% free, and there are no requirements. Seriously. You can attend as few or as many events as you like. As a WiT member, you will have access to our twice-monthly newsletter, which includes information about upcoming events and career opportunities.' },
+];
+
+const volunteerRoles = ['Mentoring', 'Speaking / Presenting', 'Social Media', 'Administration', 'Fundraising / Locating Sponsors'];
+---
+<Base title="Join" description="Joining Madison Women in Tech is free and easy!">
+  <section class="hero">
+    <div class="wrap narrow">
+      <p class="eyebrow">Join</p>
+      <h1>Become a member</h1>
+      <p class="lede">Joining Madison Women in Tech is free and easy.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={`${site.meetup}?action=join`} rel="noopener">Register on Meetup</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap narrow prose">
+      <p>
+        Just register at <a href={site.meetup} rel="noopener">our Meetup site</a>; all you
+        need is an email address and password. That's it!
+      </p>
+      <p>
+        While we prefer you sign up via Meetup so that we have accurate RSVP estimates,
+        you're welcome to simply access event information here on our website and attend
+        as you like.
+      </p>
+      <div class="callout">
+        <p><strong>We will not share your personal information. Ever.</strong></p>
+      </div>
+
+      <h2>Common questions</h2>
+      {faqs.map((f) => (
+        <details class="faq">
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+      <p class="merge-note">
+        Prototype note: this page merges the old <code>/join</code> and
+        <code>/about/FAQ</code>, which duplicated most of this content.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="grid grid-2">
+        <div>
+          <p class="eyebrow">Give time</p>
+          <h2>Volunteer with us</h2>
+          <p>There are lots of ways to help out:</p>
+          <ul>{volunteerRoles.map((r) => <li>{r}</li>)}</ul>
+          <p>
+            Have an idea for how you'd like to contribute that isn't listed? Just let us know.
+          </p>
+          <a class="btn btn-primary" href="#" onclick="event.preventDefault(); alert('Prototype only — this button opens the Google Form for volunteer signup.');">
+            Volunteer form
+          </a>
+          <p class="form-note">Prototype: links to a Google Form in production.</p>
+        </div>
+        <div>
+          <p class="eyebrow">Give space or support</p>
+          <h2>Sponsor WiT</h2>
+          <p>
+            WiT hosts events all over Madison and Dane County. Hosting gives your
+            organization exposure via our marketing materials, a built-in way for
+            employees to engage with the community, and a chance to speak directly
+            to attendees. Events typically range from 10 to 50 people.
+          </p>
+          <p>
+            You can also reach our membership through the newsletter &mdash; $20 to share
+            openings in a single issue, $100 for a month's worth.
+          </p>
+          <a class="btn btn-ghost" href={`mailto:${site.email}`}>Email us to talk sponsorship</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .faq { border-bottom: 1px solid var(--line); padding: .9rem 0; }
+  .faq summary { cursor: pointer; font-weight: 600; color: var(--brand-deep); }
+  .faq p { margin: .8rem 0 .2rem; color: var(--ink-soft); font-size: .95rem; }
+  .merge-note, .form-note { font-size: .78rem; color: var(--ink-soft); font-style: italic; }
+  .merge-note { margin-top: 2rem; }
+  code { background: var(--surface-alt); padding: .1rem .35rem; border-radius: 3px; font-size: .9em; }
+</style>

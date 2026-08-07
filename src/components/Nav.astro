@@ -1,0 +1,86 @@
+---
+import site from '../data/site.json';
+import ThemeToggle from './ThemeToggle.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Flattened from the current site's 5 dropdowns + 4 utility links.
+const links = [
+  { label: 'About',    href: `${base}/about` },
+  { label: 'Join',     href: `${base}/join` },
+  { label: 'Events',   href: site.meetupEvents, external: true },
+  { label: 'Job Fair', href: `${base}/job-fair` },
+  { label: 'Newsletter', href: `${base}/newsletter` },
+];
+const { path = '' } = Astro.props;
+---
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href={`${base}/`}>
+      <img
+        src={`${base}/images/logo.png`}
+        alt="Madison Women in Tech"
+        width="44" height="44" class="brand-mark" />
+      <span class="brand-text">Madison<br /><strong>Women in Tech</strong></span>
+    </a>
+
+    <nav aria-label="Main">
+      <ul>
+        {links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              aria-current={!l.external && path === l.href ? 'page' : undefined}
+              {...(l.external ? { rel: 'noopener' } : {})}
+            >{l.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="head-right">
+      <ThemeToggle />
+      <a class="btn btn-accent btn-sm" href={site.donate} rel="noopener">Donate</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-head {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; z-index: 50;
+  }
+  .head-inner {
+    display: flex; align-items: center; gap: 1.5rem;
+    flex-wrap: wrap;
+    padding-block: .85rem;
+  }
+  .brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; margin-right: auto; }
+  .brand-mark { width: 44px; height: 44px; flex: none; }
+  .brand-text {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    text-transform: var(--display-transform);
+    color: var(--brand-deep);
+    font-size: .82rem; line-height: 1.15;
+    letter-spacing: var(--display-spacing);
+  }
+  .brand-text strong { font-weight: inherit; font-size: 1.06rem; display: block; }
+  nav ul { display: flex; gap: 1.4rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+  nav a {
+    text-decoration: none; color: var(--ink-soft);
+    font-weight: 600; font-size: .93rem;
+    padding-block: .3rem;
+    border-bottom: 2px solid transparent;
+  }
+  nav a:hover { color: var(--brand); }
+  nav a[aria-current='page'] { color: var(--brand); border-bottom-color: var(--accent); }
+  .head-right { display: flex; align-items: center; gap: 1rem; }
+  .btn-sm { padding: .5rem 1rem; font-size: .85rem; }
+
+  @media (max-width: 860px) {
+    .brand-text { display: none; }
+    .head-inner { gap: .9rem; }
+    nav ul { gap: 1rem; }
+  }
+</style>

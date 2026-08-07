@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import SponsorGrid from '../components/SponsorGrid.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import site from '../data/site.json';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const stats = [
+  { num: '358+',   label: 'Hosted & co-hosted events' },
+  { num: '3,013+', label: 'Members on Meetup' },
+  { num: '4,971+', label: 'Total event attendees' },
+];
+
+const reviews = [
+  { quote: "Incredible! As a trans woman, one of my many concerns include wondering if leadership is going to acknowledge me and my gender but they have been warm and welcoming at every interaction. This not only applies to leadership but all the members I've met so far.", who: 'Kyla' },
+  { quote: 'Madison Women in Tech is a great, supportive and empowering community for me, to see local women come together and support each other is inspiring and encouraging!!', who: 'Mary' },
+  { quote: "Thanks a bazillion Madison Women in Tech for all your 'behind the scenes' efforts to thoughtfully bring / partner on this and other engaging community / learning events!", who: 'Hollie' },
+];
+---
+<Base title={null}>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Madison, Wisconsin</p>
+      <h1>A community for women and nonbinary folks in tech</h1>
+      <p class="lede">{site.mission}</p>
+      <p class="lede"><strong>Membership is 100% free.</strong></p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={`${base}/join`}>Become a member</a>
+        <a class="btn btn-ghost" href={site.meetupEvents} rel="noopener">See upcoming events</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="grid grid-3">
+        {stats.map((s) => (
+          <div class="stat">
+            <div class="num">{s.num}</div>
+            <div class="label">{s.label}</div>
+          </div>
+        ))}
+      </div>
+      <p class="stat-note">
+        Prototype note: these are the numbers currently on the live site. Worth
+        refreshing from Meetup before launch — the About page says "more than
+        2,500 members" while the homepage says 3,013.
+      </p>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <p class="eyebrow">In their words</p>
+      <h2>Member reviews</h2>
+      <div class="grid grid-3" style="margin-top:2rem">
+        {reviews.map((r) => (
+          <blockquote class="quote">
+            <p>&ldquo;{r.quote}&rdquo;</p>
+            <cite>&mdash; {r.who}</cite>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="grid grid-2" style="align-items:start">
+        <div>
+          <p class="eyebrow">Job Fair</p>
+          <h2>The 2026 Job Fair is Aug. 19</h2>
+          <p>
+            Our annual job fair for women and nonbinary folks in tech returns to the
+            UW Memorial Union, 10am&ndash;2pm, as part of DevFest WI and Forward Fest.
+            20+ local employers across healthcare, fintech, gaming, consulting and more.
+          </p>
+          <div class="hero-actions" style="margin-top:1.2rem">
+            <a class="btn btn-primary" href={`${base}/job-fair`}>Job fair details</a>
+          </div>
+        </div>
+        <NewsletterForm />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Thank you</p>
+      <h2>Our sponsors</h2>
+      <p class="narrow">
+        WiT events are free or $5 or less. That's only possible because local
+        companies and organizations donate space, food and time.
+        <a href={`${base}/join`}>Learn about sponsorship opportunities.</a>
+      </p>
+      <div style="margin-top:2rem"><SponsorGrid /></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .stat-note {
+    text-align: center; font-size: .78rem; color: var(--ink-soft);
+    font-style: italic; margin: 2rem auto 0; max-width: 60ch;
+  }
+</style>
