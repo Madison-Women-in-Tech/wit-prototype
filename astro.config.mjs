@@ -10,7 +10,7 @@ import { defineConfig } from 'astro/config';
 // Production on the real domain:
 //     site = 'https://madisonwomen.tech'  base = '/'
 // ---------------------------------------------------------------
-const site = 'https://YOUR-USERNAME.github.io';
+const site = 'https://interannette.github.io';
 const base = '/wit-prototype';
 
 // Astro does NOT prepend `base` to redirect targets, so internal
