@@ -1,0 +1,11 @@
+{
+  "_comment": "The one promotional block on the homepage. Year-round content by default. To promote a specific event for a while, edit these fields — then edit them back afterwards.",
+
+  "eyebrow": "What we do",
+  "title": "Events all year round",
+  "body": "Social meetups, tech talks, panels, workshops and career development — most months have something. Events are free or $5 or less, hosted at accessible locations around Madison and Dane County, and usually open to all genders.",
+  "ctaLabel": "See what's coming up",
+  "ctaHref": "https://www.meetup.com/madison-women-in-tech/events/?type=upcoming",
+  "photo": "talk.jpg",
+  "photoAlt": "A speaker presenting to Madison Women in Tech members at a tech talk"
+}

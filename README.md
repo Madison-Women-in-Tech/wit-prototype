@@ -88,6 +88,17 @@ them.
 Until you run it, those slots render as labelled dashed placeholders rather than
 broken-image icons, so the site still looks intentional.
 
+## The homepage feature block
+
+`src/data/featured.json` drives the single promotional slot on the homepage.
+It's year-round content by default, so it never goes stale on its own.
+
+To promote something for a few weeks — a job fair, a big event — edit the
+fields, then edit them back afterwards. One file, no dates, no scheduled jobs.
+
+The dedicated `/job-fair` page stays up year-round regardless, as a reference
+for next year's employers.
+
 ## Logo assets
 
 | File | Use |

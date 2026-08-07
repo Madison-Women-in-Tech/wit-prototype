@@ -4,7 +4,13 @@ import SponsorGrid from '../components/SponsorGrid.astro';
 import Photo from '../components/Photo.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
 import site from '../data/site.json';
+import featured from '../data/featured.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// The homepage feature block. Content lives in src/data/featured.json.
+const feature = featured;
+const featureExternal = feature.ctaHref.startsWith('http');
+const featureHref = featureExternal ? feature.ctaHref : `${base}${feature.ctaHref}`;
 
 const stats = [
   { num: '358+',   label: 'Hosted & co-hosted events' },
@@ -74,23 +80,20 @@ const reviews = [
 
   <section class="section-alt">
     <div class="wrap">
-      <div class="grid grid-2" style="align-items:start">
+      <div class="grid grid-2" style="align-items:center">
         <div>
-          <p class="eyebrow">Job Fair</p>
-          <h2>The 2026 Job Fair is Aug. 19</h2>
-          <p>
-            Our annual job fair for women and nonbinary folks in tech returns to the
-            UW Memorial Union, 10am&ndash;2pm, as part of DevFest WI and Forward Fest.
-            20+ local employers across healthcare, fintech, gaming, consulting and more.
-          </p>
+          <p class="eyebrow">{feature.eyebrow}</p>
+          <h2>{feature.title}</h2>
+          <p>{feature.body}</p>
           <div class="hero-actions" style="margin-top:1.2rem">
-            <a class="btn btn-primary" href={`${base}/job-fair`}>Job fair details</a>
+            <a
+              class="btn btn-primary"
+              href={featureHref}
+              {...(featureExternal ? { rel: 'noopener' } : {})}
+            >{feature.ctaLabel}</a>
           </div>
         </div>
-        <Photo
-          src="jobfair-about.jpg"
-          alt="Attendees talking with employers at a previous Madison Women in Tech job fair"
-          ratio="3 / 2" />
+        <Photo src={feature.photo} alt={feature.photoAlt} ratio="3 / 2" />
       </div>
     </div>
   </section>
