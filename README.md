@@ -72,21 +72,10 @@ For production on the real domain later: set `site: 'https://madisonwomen.tech'`
 
 ---
 
-## Photos — run this first
+## Photos
 
-Seven event photos from the current site are wired into the pages, but the image
-files aren't in the repo yet. Fetch them:
-
-```bash
-bash scripts/fetch-site-images.sh
-```
-
-**Do this soon.** The job fair photos come from Active Storage URLs that stop
-working the moment the Rails app is switched off. Commit the files once you have
-them.
-
-Until you run it, those slots render as labelled dashed placeholders rather than
-broken-image icons, so the site still looks intentional.
+Event photos from the current site have already been captured and committed —
+no fetch step needed. They live in `public/images/photos/`.
 
 ## The homepage feature block
 
@@ -146,7 +135,7 @@ finished work:
 | **Kit newsletter form** | Styled stand-in. Paste the real Kit JS embed into `src/components/NewsletterForm.astro`. |
 | **Volunteer / contact forms** | Buttons that alert. Wire to Google Forms + Formspree per the plan. |
 | **Job fair prospectus PDF** | Not included — still inside Rails, needs downloading. |
-| **Photography** | Wired up, files not committed. Run `scripts/fetch-site-images.sh`. |
+| **Photography** | Real photos, already committed in `public/images/photos/`. |
 
 ---
 
