@@ -59,6 +59,11 @@ in the Actions log, and each run also appears under the repo's **Deployments**.
 No manual Pages setup is needed — the workflow has `pages: write` permission
 and creates/updates the Pages site itself the first time it runs successfully.
 
+The live URL is **https://madison-women-in-tech.github.io/wit-prototype/** —
+note the `/wit-prototype` path. This is a project page, not the org's user
+site, so the bare `https://madison-women-in-tech.github.io/` 404s; that's
+expected and not a sign anything's broken.
+
 For production on the real domain later: set `site: 'https://madisonwomen.tech'`
 and `base: '/'` in `astro.config.mjs`, and follow the DNS steps in the
 migration plan.
