@@ -49,26 +49,19 @@ theme block from `global.css`, and remove the toggle from `Nav.astro`.
 
 ---
 
-## Deploy it to your personal account
+## Deployment
 
-1. Create a new **public** repo (e.g. `wit-prototype`).
-2. In `astro.config.mjs`, set `site` to `https://<your-username>.github.io`.
-   Leave `base` as `/wit-prototype` (or match your repo name).
-3. Push:
+The site auto-deploys via the [`deploy.yml`](.github/workflows/deploy.yml)
+GitHub Actions workflow: every push to `main` builds the site and publishes it
+to GitHub Pages. First run after a push takes ~1 minute; the live URL shows up
+in the Actions log, and each run also appears under the repo's **Deployments**.
 
-   ```bash
-   git init && git add -A && git commit -m "WiT static site prototype"
-   git branch -M main
-   git remote add origin git@github.com:<your-username>/wit-prototype.git
-   git push -u origin main
-   ```
+No manual Pages setup is needed — the workflow has `pages: write` permission
+and creates/updates the Pages site itself the first time it runs successfully.
 
-4. Repo **Settings → Pages → Source: GitHub Actions**.
-5. The included workflow builds and deploys on every push to `main`. First run
-   takes ~1 minute; the URL appears in the Actions log.
-
-For production on the real domain later: set `site: 'https://madisonwomen.tech'`,
-`base: '/'`, and follow the DNS steps in the migration plan.
+For production on the real domain later: set `site: 'https://madisonwomen.tech'`
+and `base: '/'` in `astro.config.mjs`, and follow the DNS steps in the
+migration plan.
 
 ---
 

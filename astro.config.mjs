@@ -3,14 +3,14 @@ import { defineConfig } from 'astro/config';
 // ---------------------------------------------------------------
 // PROTOTYPE CONFIG
 //
-// Deploying to a personal account as a project page
-// (https://<you>.github.io/wit-prototype):
-//     site = 'https://<you>.github.io'   base = '/wit-prototype'
+// Deploying as an org project page
+// (https://madison-women-in-tech.github.io/wit-prototype):
+//     site = 'https://madison-women-in-tech.github.io'   base = '/wit-prototype'
 //
 // Production on the real domain:
 //     site = 'https://madisonwomen.tech'  base = '/'
 // ---------------------------------------------------------------
-const site = 'https://interannette.github.io';
+const site = 'https://madison-women-in-tech.github.io';
 const base = '/wit-prototype';
 
 // Astro does NOT prepend `base` to redirect targets, so internal
