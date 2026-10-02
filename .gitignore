@@ -20,3 +20,6 @@ yarn-error.log*
 Thumbs.db
 .vscode/
 .idea/
+
+# large binaries — store externally (e.g. Google Drive), not in git
+migration/*.pdf
